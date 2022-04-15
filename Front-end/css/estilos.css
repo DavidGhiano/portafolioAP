@@ -158,19 +158,94 @@ input.form-control{
   display: none;
   /* margin-right: .7rem; */
 }
+@media (min-width: 768px){
+  .redes-login .redes{
+    display: block;
+    margin-right: .7rem;
+    line-height: 1;
+  } 
+}
+
 
 /* Baner */
 .banner {
+  background-image: url(../img/banner.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 35rem;
+}
+
+@media (min-width: 768px){
+  .banner{
+    height: 45rem;
+  }
 }
 
 /*MAIN*/
 .contenedor {
   margin: 0 auto;
   max-width: 95%;
-  background-color: white;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+  display: block;
+  margin-top:-5rem !important;
 }
+@media (min-width: 768px){
+  .contenedor{
+    max-width: 140rem;
+    display:flex;
+    margin: 0 auto;
+    margin-top:-10rem !important;
+  }
+}
+
+/* SIDEBAR */
+.sidebar{
+  display: none;
+}
+@media (min-width: 768px){
+  .sidebar{
+    display: block;
+    background-color: var(--colorPrincipal);
+    width: 20%;
+    margin-right: 1rem;
+  }
+}
+
+.sidebar ul{
+  text-transform: uppercase;
+  font-family: var(--fuentePrincipal);
+  font-weight: bold;
+  text-align: left;
+  list-style-type: none;
+  line-height: 1;
+  margin-top: 3rem;
+  padding: 0;
+}
+.sidebar ul li{
+  padding: 1.5rem 0 1.5rem 2rem;
+  border-bottom: 2px solid white;
+  margin: 0;
+  transition: background-color .5s ease;
+}
+.sidebar ul a{
+  color:white;
+}
+.sidebar ul li:hover{
+  background-color: var(--colorSecundario);
+}
+
 /* SECTIONs*/
+
+.secciones{
+  width: 100%;
+  background-color: white;
+}
+@media (min-width: 768px){
+  .secciones{
+    width: 80%;
+  }
+}
 section {
   margin: 0 2rem;
   border-bottom: 0.17rem solid var(--colorGris);
@@ -202,6 +277,25 @@ section:last-of-type{
   margin: 0 auto;
   max-width: fit-content;
 }
+
+@media (min-width: 768px){
+  .perfil{
+    margin-top:2rem;
+  }
+  .perfil .foto{
+    display:none;
+  }
+}
+
+.perfil-info{
+  text-align: center;
+}
+@media (min-width: 768px){
+  .perfil-info{
+    text-align:left;
+  }
+}
+
 .fotoPerfil {
   max-width: 20rem;
   border-radius: 50%;
@@ -210,10 +304,16 @@ section:last-of-type{
 }
 .perfil p.info {
   font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .perfil .redes{
   display:block;
+}
+@media (min-width: 768px){
+  .perfil .redes{
+    display: none;
+  }
 }
 .perfil .redes a{
   color: var(--colorPrincipal);
@@ -235,13 +335,43 @@ section:last-of-type{
   color: var(--colorPrincipalDark);
 }
 
+/*FOOTER*/
+footer{
+  background-color: black;
+  width: 100%;
+  color: white;
+}
+footer p{
+  font-family: var(--fuentePrincipal);
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 2.5rem 0;
+}
+
 
 /*Barras de Progreso CIRCULAR*/
 .circulos{
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(1,1fr);
   grid-gap: 1rem;
 }
+
+@media (min-width: 425px){
+  .circulos{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media (min-width: 546px){
+  .circulos{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+@media (min-width: 768px){
+  .circulos{
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
 .circle-wrap{
   margin: 2rem auto;
   width: 15rem;
