@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema PortafolioAP
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema PortafolioAP
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `PortafolioAP` DEFAULT CHARACTER SET utf8 ;
+USE `PortafolioAP` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Lugar`
+-- Table `PortafolioAP`.`Lugar`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Lugar` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Lugar` (
   `idLugar` INT NOT NULL AUTO_INCREMENT,
   `ciudad` VARCHAR(45) NOT NULL,
   `provincia` VARCHAR(45) NOT NULL,
@@ -27,9 +27,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Persona`
+-- Table `PortafolioAP`.`Persona`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Persona` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Persona` (
   `idPersona` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `apellido` VARCHAR(45) NOT NULL,
@@ -49,16 +49,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Persona` (
   INDEX `fk_Persona_Lugar1_idx` (`idLugar` ASC) VISIBLE,
   CONSTRAINT `fk_Persona_Lugar1`
     FOREIGN KEY (`idLugar`)
-    REFERENCES `mydb`.`Lugar` (`idLugar`)
+    REFERENCES `PortafolioAP`.`Lugar` (`idLugar`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Experiencia`
+-- Table `PortafolioAP`.`Experiencia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Experiencia` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Experiencia` (
   `idExperiencia` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `posicion` VARCHAR(45) NOT NULL,
@@ -72,21 +72,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Experiencia` (
   INDEX `fk_Experiencia_Lugar1_idx` (`idLugar` ASC) VISIBLE,
   CONSTRAINT `fk_Experiencia_Persona1`
     FOREIGN KEY (`idPersona`)
-    REFERENCES `mydb`.`Persona` (`idPersona`)
+    REFERENCES `PortafolioAP`.`Persona` (`idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Experiencia_Lugar1`
     FOREIGN KEY (`idLugar`)
-    REFERENCES `mydb`.`Lugar` (`idLugar`)
+    REFERENCES `PortafolioAP`.`Lugar` (`idLugar`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Actividad`
+-- Table `PortafolioAP`.`Actividad`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Actividad` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Actividad` (
   `idActividad` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(150) NOT NULL,
   `idExperiencia` INT NOT NULL,
@@ -94,16 +94,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Actividad` (
   INDEX `fk_Actividad_Experiencia_idx` (`idExperiencia` ASC) VISIBLE,
   CONSTRAINT `fk_Actividad_Experiencia`
     FOREIGN KEY (`idExperiencia`)
-    REFERENCES `mydb`.`Experiencia` (`idExperiencia`)
+    REFERENCES `PortafolioAP`.`Experiencia` (`idExperiencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Academico`
+-- Table `PortafolioAP`.`Academico`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Academico` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Academico` (
   `idAcademico` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `titulo` VARCHAR(45) NOT NULL,
@@ -118,21 +118,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Academico` (
   INDEX `fk_Academico_Persona1_idx` (`idPersona` ASC) VISIBLE,
   CONSTRAINT `fk_Academico_Lugar1`
     FOREIGN KEY (`idLugar`)
-    REFERENCES `mydb`.`Lugar` (`idLugar`)
+    REFERENCES `PortafolioAP`.`Lugar` (`idLugar`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Academico_Persona1`
     FOREIGN KEY (`idPersona`)
-    REFERENCES `mydb`.`Persona` (`idPersona`)
+    REFERENCES `PortafolioAP`.`Persona` (`idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Cursos`
+-- Table `PortafolioAP`.`Cursos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Cursos` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Cursos` (
   `idCursos` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `dictado` VARCHAR(45) NOT NULL,
@@ -144,16 +144,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Cursos` (
   INDEX `fk_Cursos_Persona1_idx` (`idPersona` ASC) VISIBLE,
   CONSTRAINT `fk_Cursos_Persona1`
     FOREIGN KEY (`idPersona`)
-    REFERENCES `mydb`.`Persona` (`idPersona`)
+    REFERENCES `PortafolioAP`.`Persona` (`idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Skills`
+-- Table `PortafolioAP`.`Skills`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Skills` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Skills` (
   `idSkills` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `tipo` ENUM('hard', 'soft') NOT NULL,
@@ -164,16 +164,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Skills` (
   INDEX `fk_Skills_Persona1_idx` (`Persona_idPersona` ASC) VISIBLE,
   CONSTRAINT `fk_Skills_Persona1`
     FOREIGN KEY (`Persona_idPersona`)
-    REFERENCES `mydb`.`Persona` (`idPersona`)
+    REFERENCES `PortafolioAP`.`Persona` (`idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Proyectos`
+-- Table `PortafolioAP`.`Proyectos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Proyectos` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Proyectos` (
   `idProyectos` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `url` VARCHAR(45) NOT NULL,
@@ -183,16 +183,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Proyectos` (
   INDEX `fk_Proyectos_Persona1_idx` (`idPersona` ASC) VISIBLE,
   CONSTRAINT `fk_Proyectos_Persona1`
     FOREIGN KEY (`idPersona`)
-    REFERENCES `mydb`.`Persona` (`idPersona`)
+    REFERENCES `PortafolioAP`.`Persona` (`idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Tecnologia`
+-- Table `PortafolioAP`.`Tecnologia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Tecnologia` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Tecnologia` (
   `idTecnologia` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idTecnologia`))
@@ -200,9 +200,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Proyectos_has_Tecnologia`
+-- Table `PortafolioAP`.`Proyectos_has_Tecnologia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Proyectos_has_Tecnologia` (
+CREATE TABLE IF NOT EXISTS `PortafolioAP`.`Proyectos_has_Tecnologia` (
   `Proyectos_idProyectos` INT NOT NULL,
   `Tecnologia_idTecnologia` INT NOT NULL,
   PRIMARY KEY (`Proyectos_idProyectos`, `Tecnologia_idTecnologia`),
@@ -210,12 +210,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Proyectos_has_Tecnologia` (
   INDEX `fk_Proyectos_has_Tecnologia_Proyectos1_idx` (`Proyectos_idProyectos` ASC) VISIBLE,
   CONSTRAINT `fk_Proyectos_has_Tecnologia_Proyectos1`
     FOREIGN KEY (`Proyectos_idProyectos`)
-    REFERENCES `mydb`.`Proyectos` (`idProyectos`)
+    REFERENCES `PortafolioAP`.`Proyectos` (`idProyectos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Proyectos_has_Tecnologia_Tecnologia1`
     FOREIGN KEY (`Tecnologia_idTecnologia`)
-    REFERENCES `mydb`.`Tecnologia` (`idTecnologia`)
+    REFERENCES `PortafolioAP`.`Tecnologia` (`idTecnologia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
