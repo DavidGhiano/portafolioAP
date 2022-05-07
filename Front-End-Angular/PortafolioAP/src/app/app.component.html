@@ -1,10 +1,14 @@
 <header>
-  <app-navbar></app-navbar>
+  <app-navbar
+    [persona] = "persona"
+  ></app-navbar>
   <app-banner></app-banner>
 </header>
 <main>
   <div class="contenedor">
     <app-sidebar></app-sidebar>
-    <app-secciones></app-secciones>
+    <app-secciones
+      [persona] = "persona"
+    ></app-secciones>
   </div>
 </main>

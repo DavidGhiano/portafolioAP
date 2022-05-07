@@ -2,20 +2,33 @@
 <section class="perfil pb-4" id="datos-personales">
   <div class="foto">
     <img
-      src="../../../../../assets/img/perfil.jpg"
+      src="/assets/img/perfil.jpg"
       alt="foto de perfil"
       class="fotoPerfil"
     />
   </div>
   <div class="perfil-info">
-    <h1 class="text-center">David Omar Ghiano</h1>
-    <p class="info">Estudiante de Analista de Sistema</p>
-    <p class="">Villa María, Córdoba, Argentina</p>
+    <h1 class="text-center">{{ persona.nombre }} {{ persona.apellido }}</h1>
+    <p class="info">{{ persona.titulo }}</p>
+    <p class="">{{ persona.lugar }}</p>
     <div class="redes">
-      <a href=""><i class="fa-brands fa-linkedin"></i></a>
-      <a href=""><i class="fa-brands fa-facebook-square"></i></a>
-      <a href=""><i class="fa-brands fa-twitter-square"></i></a>
-      <a href=""><i class="fa-brands fa-github-square"></i></a>
+      <div class="redes">
+        <a href="{{ persona.urlLinkedin }}" *ngIf="persona.urlLinkedin != null">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="{{ persona.urlFacebook }}" *ngIf="persona.urlFacebook != null">
+          <i class="fa-brands fa-facebook-square"></i>
+        </a>
+        <a href="{{ persona.urlTwitter }}" *ngIf="persona.urlTwitter != null">
+          <i class="fa-brands fa-twitter-square"></i>
+        </a>
+        <a href="{{ persona.urlGithub }}" *ngIf="persona.urlGithub != null">
+          <i class="fa-brands fa-github-square"></i>
+        </a>
+        <a href="{{ persona.urlWeb }}" *ngIf="persona.urlWeb != null">
+          <i class="fa-brands fa-dribbble-square"></i>
+        </a>
+      </div>
     </div>
   </div>
 </section>

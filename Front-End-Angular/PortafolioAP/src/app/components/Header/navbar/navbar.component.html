@@ -11,10 +11,21 @@
     </div>
     <div class="redes-login">
       <div class="redes">
-        <a href=""><i class="fa-brands fa-linkedin"></i></a>
-        <a href=""><i class="fa-brands fa-facebook-square"></i></a>
-        <a href=""><i class="fa-brands fa-twitter-square"></i></a>
-        <a href=""><i class="fa-brands fa-github-square"></i></a>
+        <a href="{{ persona.urlLinkedin }}" *ngIf="persona.urlLinkedin != null">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="{{ persona.urlFacebook }}" *ngIf="persona.urlFacebook != null">
+          <i class="fa-brands fa-facebook-square"></i>
+        </a>
+        <a href="{{ persona.urlTwitter }}" *ngIf="persona.urlTwitter != null">
+          <i class="fa-brands fa-twitter-square"></i>
+        </a>
+        <a href="{{ persona.urlGithub }}" *ngIf="persona.urlGithub != null">
+          <i class="fa-brands fa-github-square"></i>
+        </a>
+        <a href="{{ persona.urlWeb }}" *ngIf="persona.urlWeb != null">
+          <i class="fa-brands fa-dribbble-square"></i>
+        </a>
       </div>
       <button
         type="button"

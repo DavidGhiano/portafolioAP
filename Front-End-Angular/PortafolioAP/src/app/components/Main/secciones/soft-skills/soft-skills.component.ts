@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-soft-skills',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: []
 })
 export class SoftSkillsComponent implements OnInit {
-
+  @Input() persona: any = {};
   constructor() { }
 
   ngOnInit(): void {
