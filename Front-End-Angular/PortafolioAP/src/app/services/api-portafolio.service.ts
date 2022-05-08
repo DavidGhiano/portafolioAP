@@ -6,12 +6,19 @@ import { Injectable } from '@angular/core';
 })
 export class ApiPortafolioService {
 
+  url:string ="http://localhost:8080";
+
   constructor(
     private http: HttpClient
   ) { }
 
   public getPersona(){
-    const URL = `http://localhost:8080/portafolio/personas/traer/1`;
+    const URL = `${ this.url }/portafolio/personas/traer/1`;
+    return this.http.get( URL );
+  }
+
+  public getSoloNombre(){
+    const URL = `${ this.url }/portafolio/personas/traer/1/nombreapellido`;
     return this.http.get( URL );
   }
 }

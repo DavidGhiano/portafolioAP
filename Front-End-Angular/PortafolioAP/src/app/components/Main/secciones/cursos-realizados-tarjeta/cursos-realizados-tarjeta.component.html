@@ -1,0 +1,12 @@
+<div class="contenido">
+  <img src="" alt="" />
+  <div class="contenido-info">
+    <h2>{{ curso.nombre }}</h2>
+    <p class="info">{{ curso.dictadoPor }}</p>
+    <p class="info mb-3">{{ curso.comienzo }} | 
+        <span *ngIf="curso.finalizado== null">En Curso</span>
+        <span *ngIf="curso.finalizado != null">{{ curso.finalizado }}</span>
+    </p>
+    <a [href]="curso.urlCertificado" class="btn btn-primario">Certificado</a>
+  </div>
+</div>

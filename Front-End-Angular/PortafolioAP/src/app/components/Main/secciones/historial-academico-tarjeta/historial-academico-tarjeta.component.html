@@ -1,0 +1,14 @@
+<div class="contenido">
+  <img [src]="academico.urlLogo" [alt]="academico.nombre" />
+  <div class="contenido-info">
+    <h2>{{ academico.nombre }}</h2>
+    <p class="info">
+      {{ academico.titulo }}
+    </p>
+    <p class="info mb-3">{{ academico.comienzo }} | 
+        <span *ngIf="academico.finalizado == null">{{ academico.estado }}</span>
+        <span *ngIf="academico.finalizado != null">{{ academico.finalizado }}</span>
+    </p>
+    <a [href]="academico.urlCarrera" class="btn btn-primario">Plan de estudio</a>
+  </div>
+</div>

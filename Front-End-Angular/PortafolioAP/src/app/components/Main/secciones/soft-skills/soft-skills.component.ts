@@ -7,7 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SoftSkillsComponent implements OnInit {
   @Input() persona: any = {};
-  constructor() { }
+
+  constructor() {}
 
   ngOnInit(): void {
   }

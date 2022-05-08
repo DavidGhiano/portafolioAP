@@ -6,7 +6,9 @@
 </header>
 <main>
   <div class="contenedor">
-    <app-sidebar></app-sidebar>
+    <app-sidebar
+      [foto] ="persona.urlFoto"
+    ></app-sidebar>
     <app-secciones
       [persona] = "persona"
     ></app-secciones>

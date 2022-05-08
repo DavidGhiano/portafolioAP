@@ -16,6 +16,13 @@ import { CursosRealizadosComponent } from './components/Main/secciones/cursos-re
 import { HardSkillsComponent } from './components/Main/secciones/hard-skills/hard-skills.component';
 import { SoftSkillsComponent } from './components/Main/secciones/soft-skills/soft-skills.component';
 import { ProyectosComponent } from './components/Main/secciones/proyectos/proyectos.component';
+import { ExperienciaTarjetaComponent } from './components/Main/secciones/experiencia-tarjeta/experiencia-tarjeta.component';
+import { HistorialAcademicoTarjetaComponent } from './components/Main/secciones/historial-academico-tarjeta/historial-academico-tarjeta.component';
+import { CursosRealizadosTarjetaComponent } from './components/Main/secciones/cursos-realizados-tarjeta/cursos-realizados-tarjeta.component';
+import { HardSkillsTarjetaComponent } from './components/Main/secciones/hard-skills-tarjeta/hard-skills-tarjeta.component';
+import { SoftSkillsTarjetaComponent } from './components/Main/secciones/soft-skills-tarjeta/soft-skills-tarjeta.component';
+import { ProyectoTarjetaComponent } from './components/Main/secciones/proyecto-tarjeta/proyecto-tarjeta.component';
+import { NoimagePipe } from './pipes/noimage.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,14 @@ import { ProyectosComponent } from './components/Main/secciones/proyectos/proyec
     CursosRealizadosComponent,
     HardSkillsComponent,
     SoftSkillsComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    ExperienciaTarjetaComponent,
+    HistorialAcademicoTarjetaComponent,
+    CursosRealizadosTarjetaComponent,
+    HardSkillsTarjetaComponent,
+    SoftSkillsTarjetaComponent,
+    ProyectoTarjetaComponent,
+    NoimagePipe
   ],
   imports: [
     BrowserModule,

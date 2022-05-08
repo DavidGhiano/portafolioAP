@@ -169,7 +169,6 @@ input.form-control{
 
 /* Baner */
 .banner {
-  background-image: url(assets/img/banner.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -422,7 +421,7 @@ footer p{
 }
 
 .circle-wrap .circle .mask{
-    clip: rect(0px, 17.5rem, 17.5rem,8.75rem);
+    clip: rect(0px, 17rem, 17rem,7rem);
 }
 
 .circle-wrap .inside-circle{

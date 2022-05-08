@@ -1,0 +1,16 @@
+<div class="contenido">
+  <img src="" alt="" />
+  <div class="contenido-info">
+    <h2>
+      <a [href]="proyecto.url" target="_blank">
+        {{ proyecto.nombre }}
+      </a>
+    </h2>
+
+    <p class="info">{{ proyecto.descripcion }}</p>
+    <p class="info">Tecnología Usada:</p>
+    <ul class="mb-3" *ngFor="let tecnologia of proyecto.tecnologias">
+      <li>{{ tecnologia.nombre }}</li>
+    </ul>
+  </div>
+</div>

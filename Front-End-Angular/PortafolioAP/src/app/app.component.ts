@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiPortafolioService } from './services/api-portafolio.service';
+import { Title } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-root',
@@ -7,22 +8,23 @@ import { ApiPortafolioService } from './services/api-portafolio.service';
   styleUrls: []
 })
 export class AppComponent {
-  title = 'PortafolioAP';
-
   persona: any = {};
-
+  nombre:string ="";
 
   constructor(
-    private apiPortafolio: ApiPortafolioService
+    private apiPortafolio: ApiPortafolioService,
+    private title: Title
   ) { 
     this.apiPortafolio.getPersona()
         .subscribe( ( data:any ) => 
-            { 
-              this.persona = data;
-              console.log(data);
-            }, ( errorServicio ) => 
-            {
-              console.log( errorServicio.message );
-            }); 
+        { 
+          this.persona = data;
+          this.title.setTitle("PortafolioAP | " + data.nombreCompleto)
+          console.log( data );
+        }, ( errorServicio ) => 
+        {
+          console.log( errorServicio.message );
+        });
+    
   }
 }

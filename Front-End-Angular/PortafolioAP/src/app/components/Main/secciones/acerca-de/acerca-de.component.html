@@ -1,7 +1,7 @@
   <!-- ACERCA DE -->
   <section class="acercaDe" id="acerca-de">
     <h1>Acerca de mí</h1>
-    <div class="contenido">
+    <div class="contenido" *ngIf="persona.descripcion != null">
       <img src="" alt="" />
       <p>
         {{ persona.descripcion }}

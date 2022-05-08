@@ -1,0 +1,15 @@
+<div class="contenido">
+  <img src="/assets/img/emmanuel-logo.png" alt="" />
+  <div class="contenido-info">
+    <h2>{{ experiencia.nombre }}</h2>
+    <p><small>{{ experiencia.posicion }} - {{ experiencia.jornada }}</small></p>
+    <!-- Pasar las fechas por un Piper -->
+    <p class="info mb-3">{{ lugar.ciudad }}, {{ lugar.provincia }}, {{ lugar.pais }}</p>
+    <!-- pasar los datos por un piper -->
+    <ul *ngfor="let actividad of experiencia.actividades">
+      <li>
+        {{ actividad.nombre }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="circle-wrap" *ngIf="skill.tipo=='soft'">
+  <div class="circle">
+    <div class="mask full" [ngStyle]="{ 'transform': 'porcentajeStyle' }">
+      <div class="fill" [ngStyle]="{ 'transform': 'porcentajeStyle' }"></div>
+    </div>
+    <div class="mask half">
+      <div class="fill" [ngStyle]="{ 'transform': 'porcentajeStyle' }"></div>
+    </div>
+    <div class="inside-circle">
+      <img [src]="skill.urlIcono" alt="" />
+      <p>{{ skill.nombre }}</p>
+      <p class="porce">{{ skill.porcentaje }}</p>
+    </div>
+  </div>
+</div>

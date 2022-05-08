@@ -11,19 +11,34 @@
     </div>
     <div class="redes-login">
       <div class="redes">
-        <a href="{{ persona.urlLinkedin }}" *ngIf="persona.urlLinkedin != null">
+        <a 
+          [href]="persona.urlLinkedin" 
+          *ngIf="persona.urlLinkedin != null && persona.urlLinkedin != ''"
+          target="_blank">
           <i class="fa-brands fa-linkedin"></i>
         </a>
-        <a href="{{ persona.urlFacebook }}" *ngIf="persona.urlFacebook != null">
+        <a 
+          [href]="persona.urlFacebook" 
+          *ngIf="persona.urlFacebook != null && persona.urlFacebook != ''"
+          target="_blank">
           <i class="fa-brands fa-facebook-square"></i>
         </a>
-        <a href="{{ persona.urlTwitter }}" *ngIf="persona.urlTwitter != null">
+        <a 
+          [href]="persona.urlTwitter" 
+          *ngIf="persona.urlTwitter != null && persona.urlTwitter != ''"
+          target="_blank">
           <i class="fa-brands fa-twitter-square"></i>
         </a>
-        <a href="{{ persona.urlGithub }}" *ngIf="persona.urlGithub != null">
+        <a 
+          [href]="persona.urlGithub" 
+          *ngIf="persona.urlGithub != null && persona.urlGithub != ''"
+          target="_blank">
           <i class="fa-brands fa-github-square"></i>
         </a>
-        <a href="{{ persona.urlWeb }}" *ngIf="persona.urlWeb != null">
+        <a 
+          [href]="persona.urlWeb" 
+          *ngIf="persona.urlWeb != null && persona.urlWeb != ''"
+          target="_blank">
           <i class="fa-brands fa-dribbble-square"></i>
         </a>
       </div>
