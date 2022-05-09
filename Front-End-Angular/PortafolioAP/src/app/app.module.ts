@@ -22,7 +22,10 @@ import { CursosRealizadosTarjetaComponent } from './components/Main/secciones/cu
 import { HardSkillsTarjetaComponent } from './components/Main/secciones/hard-skills-tarjeta/hard-skills-tarjeta.component';
 import { SoftSkillsTarjetaComponent } from './components/Main/secciones/soft-skills-tarjeta/soft-skills-tarjeta.component';
 import { ProyectoTarjetaComponent } from './components/Main/secciones/proyecto-tarjeta/proyecto-tarjeta.component';
+import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
+
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,11 +48,13 @@ import { NoimagePipe } from './pipes/noimage.pipe';
     HardSkillsTarjetaComponent,
     SoftSkillsTarjetaComponent,
     ProyectoTarjetaComponent,
+    IniciarSesionComponent,
     NoimagePipe
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
