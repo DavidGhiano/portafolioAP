@@ -13,7 +13,7 @@ import lombok.Setter;
 
 
 @Getter @Setter
-        @Entity
+@Entity
 public class Academico {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -21,13 +21,11 @@ public class Academico {
     private String nombre;
     private String titulo;
     private String urlCarrera;
+    private String urlLogo;
     private String estado;
     @OneToOne
     private Lugar lugar;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date comienzo;
-    @Column(nullable=true)
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date finalizado = null;
+    private String comienzo;
+    private String finalizado;
     
 }

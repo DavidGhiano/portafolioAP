@@ -19,14 +19,12 @@ public class Experiencia {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Integer idExperiencia;
+    private String nombre;
     private String posicion;
     private String jornada;
-    
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date comienzo;
-    @Column(nullable=true)
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date finalizado;
+    private String urlExperiencia;
+    private String comienzo;
+    private String finalizado;
     @OneToOne
     private Lugar lugar;
     @OneToMany

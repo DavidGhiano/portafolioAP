@@ -9,26 +9,28 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AcademicoService implements IAcademicoService{
-     @Autowired
-     private AcademicoRepository academicoRepo;
+    @Autowired
+    private AcademicoRepository academicoRepo;
 
     @Override
     public List<Academico> getAcademicos() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Academico> listaAcademico = academicoRepo.findAll();
+        return listaAcademico;
     }
 
     @Override
     public void saveAcademico(Academico academico) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        academicoRepo.save(academico);
     }
 
     @Override
     public void deleteAcademico(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        academicoRepo.deleteById(id);
     }
 
     @Override
     public Academico findAcademico(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Academico academico = academicoRepo.findById(id).orElse(null);
+        return academico;
     }
 }

@@ -17,6 +17,7 @@ public class Usuario {
     private Integer idUsuario;
     private String usuario;
     private String password;
+    private String token;
     @OneToMany
     private List<Sesion> sesiones;
 }

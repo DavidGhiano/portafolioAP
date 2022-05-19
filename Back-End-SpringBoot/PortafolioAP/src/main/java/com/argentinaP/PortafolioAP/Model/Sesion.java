@@ -15,6 +15,5 @@ public class Sesion {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Integer idSesion;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fecha;
+    private String fecha;
 }

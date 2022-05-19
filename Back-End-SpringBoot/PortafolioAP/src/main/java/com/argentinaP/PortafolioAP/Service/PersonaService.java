@@ -4,7 +4,6 @@ import com.argentinaP.PortafolioAP.Model.Persona;
 import com.argentinaP.PortafolioAP.Repository.PersonaRepository;
 import com.argentinaP.PortafolioAP.Service.Interfaces.IPersonaService;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

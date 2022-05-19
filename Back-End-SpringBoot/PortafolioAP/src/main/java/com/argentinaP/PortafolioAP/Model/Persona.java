@@ -19,22 +19,17 @@ public class Persona {
     private Integer idPersona;
     private String nombre;
     private String apellido;
+    private String nombreCompleto;
     private String email;
     private String celular;
     private String titulo;
-    @Column(nullable=true)
     private String urlFoto;
     private String urlPortada;
     private String descripction;
-    @Column(nullable=true)
     private String urlFacebook;
-    @Column(nullable=true)
     private String urlTwitter;
-    @Column(nullable=true)
     private String urlLinkedin;
-    @Column(nullable=true)
     private String urlGithub;
-    @Column(nullable=true)
     private String urlWeb;
     @OneToOne
     private Lugar lugar;

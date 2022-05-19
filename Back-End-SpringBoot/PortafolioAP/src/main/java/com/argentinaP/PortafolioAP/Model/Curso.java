@@ -19,12 +19,7 @@ public class Curso {
     private String nombre;
     private String dictadoPor;
     private String urlCertificado;
-
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date comienzo;
-    
-    @Column(nullable=true)
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date finalizado;
+    private String comienzo;
+    private String finalizado;
     
 }
