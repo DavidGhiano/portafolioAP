@@ -1,15 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ApiPortafolioService } from './services/api-portafolio.service';
 import { Title } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: []
+  providers: [ApiPortafolioService]
 })
 export class AppComponent {
-  persona: any = {};
+  @Input() persona: any = {};
+  @Output() personaCambio = new EventEmitter<any>();
   nombre:string ="";
+
+  login:boolean = true;
 
   constructor(
     private apiPortafolio: ApiPortafolioService,
@@ -26,5 +29,9 @@ export class AppComponent {
           console.log( errorServicio.message );
         });
     
+  }
+
+  ngOnInit(){
+    this.personaCambio.emit(this.persona);
   }
 }

@@ -88,7 +88,26 @@ li {
   margin: 0 .3rem;
 }
 
+label.form-label{
+  padding: .2rem 2rem 0 2rem;
+  font-family: var(--fuenteSecundaria);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
 input.form-control{
+  padding: 1rem 2rem;
+  border-radius: 1.2rem;
+  font-family: var(--fuenteSecundaria);
+  font-size: 1.4rem;
+}
+textarea.form-control{
+  padding: 1rem 2rem;
+  border-radius: 1.2rem;
+  font-family: var(--fuenteSecundaria);
+  font-size: 1.4rem;
+}
+select.form-select{
   padding: 1rem 2rem;
   border-radius: 1.2rem;
   font-family: var(--fuenteSecundaria);
@@ -280,14 +299,17 @@ section {
   margin: 0 2rem;
   border-bottom: 0.17rem solid var(--colorGris);
 }
+
+
 .contenido {
   display: flex;
   border-bottom: 1px solid var(--colorSecundario);
   padding: 2rem 0;
 }
-.contenido:last-of-type {
-  border: none;
+.contenido:last-of-type{
+  border:none;
 }
+
 .contenido img {
   max-width: 9rem;
   min-width: 9rem;
@@ -317,6 +339,36 @@ section {
 .perfil-info{
   text-align: center;
 }
+
+.perfil-info > div{
+  display: flex;
+  justify-content:space-between
+}
+.fa-pen, .fa-plus, .fa-trash{
+  color: var(--colorPrincipal);
+  margin: 0 1rem;
+  align-self: center;
+  transition: color .3s ease-in-out;
+}
+.fa-delete-left, .fa-pen, .fa-plus, .fa-trash, .fa-check{
+  cursor:pointer;
+}
+
+.fa-pen{
+  font-size: 2.2rem;
+}
+.fa-plus{
+  font-size: 2.8rem;
+}
+
+.perfil-info .fa-pen:hover, .fa-plus:hover{
+  color: var(--colorPrincipalDark);
+}
+
+.input-group-text i{
+  font-size:2.2rem;
+}
+
 @media (min-width: 769px){
   .perfil-info{
     text-align:left;
@@ -350,9 +402,22 @@ section {
 }
 
 /* Acerca de mi*/
+.acercaDe-titulo{
+  display: flex;
+  justify-content: space-between;
+}
+.acercaDe-titulo h1{
+  margin: 1rem 0 0 0;
+}
 
-/* Experiencia */
+.titulos-editar{
+  display: flex;
+  justify-content: space-between;
+}
 
+.titulos-editar h1{
+  margin: 1rem 0 0 0;
+}
 /* Proyectos */
 
 .proyectos h2 a{

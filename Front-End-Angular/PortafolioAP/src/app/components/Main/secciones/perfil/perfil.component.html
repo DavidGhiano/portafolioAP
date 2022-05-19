@@ -7,43 +7,163 @@
       class="fotoPerfil"
     />
   </div>
-  <div class="perfil-info">
-    <h1 class="text-center">{{ persona.nombreCompleto }}</h1>
+  <div class="perfil-info" *ngIf="!editar">
+    <div class="perfil-titulo">
+      <h1 class="text-center">
+        {{ persona.nombreCompleto }}
+      </h1>
+      <i (click)="onEditar($event)" class="fa-solid fa-pen" *ngIf="login"></i>
+    </div>
     <p class="info">{{ persona.titulo }}</p>
     <p class="">{{ persona.lugar }}</p>
     <div class="redes">
       <div class="redes">
-        <a 
-          [href]="persona.urlLinkedin" 
+        <a
+          [href]="persona.urlLinkedin"
           *ngIf="persona.urlLinkedin != null && persona.urlLinkedin != ''"
-          target="_blank">
+          target="_blank"
+        >
           <i class="fa-brands fa-linkedin"></i>
         </a>
-        <a 
-          [href]="persona.urlFacebook" 
+        <a
+          [href]="persona.urlFacebook"
           *ngIf="persona.urlFacebook != null && persona.urlFacebook != ''"
-          target="_blank">
+          target="_blank"
+        >
           <i class="fa-brands fa-facebook-square"></i>
         </a>
-        <a 
-          [href]="persona.urlTwitter" 
+        <a
+          [href]="persona.urlTwitter"
           *ngIf="persona.urlTwitter != null && persona.urlTwitter != ''"
-          target="_blank">
+          target="_blank"
+        >
           <i class="fa-brands fa-twitter-square"></i>
         </a>
-        <a 
-          [href]="persona.urlGithub" 
+        <a
+          [href]="persona.urlGithub"
           *ngIf="persona.urlGithub != null && persona.urlGithub != ''"
-          target="_blank">
+          target="_blank"
+        >
           <i class="fa-brands fa-github-square"></i>
         </a>
-        <a 
-          [href]="persona.urlWeb" 
+        <a
+          [href]="persona.urlWeb"
           *ngIf="persona.urlWeb != null && persona.urlWeb != ''"
-          target="_blank">
+          target="_blank"
+        >
           <i class="fa-brands fa-dribbble-square"></i>
         </a>
       </div>
     </div>
+  </div>
+  <div class="perfil-form" *ngIf="editar">
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="nombre"
+          placeholder="Ingrese un nombre"
+          [(value)]="persona.nombre"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="apellido"
+          value="{{ persona.apellido }}"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          value="{{ persona.email }}"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Celular</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="celular"
+          value="{{ persona.celular }}"
+        />
+      </div>
+      <div class="mb-5">
+        <label class="form-label">Titulo</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="titulo"
+          value="{{ persona.titulo }}"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="fa-brands fa-facebook-square"></i>
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="urlFacebook"
+          placeholder="https://www.facebook.com/"
+          value="{{ persona.urlFacebook }}"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="fa-brands fa-twitter-square"></i>  
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="urlTwitter"
+          placeholder="https://www.twitter.com/"
+          value="{{ persona.urlTwitter }}"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="fa-brands fa-linkedin"></i>  
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="urlLinkedin"
+          placeholder="https://www.linkedin.com/"
+          value="{{ persona.urlLinkedin }}"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="fa-brands fa-github-square"></i>  
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="urlGithub"
+          placeholder="https://www.github.com/"
+          value="{{ persona.urlGithub }}"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="fa-brands fa-dribbble-square"></i>
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="urlWeb"
+          value="{{ persona.urlWeb }}"
+        />
+      </div>
+      <button type="submit" class="btn btn-primario">Guardar</button>
+    </form>
   </div>
 </section>

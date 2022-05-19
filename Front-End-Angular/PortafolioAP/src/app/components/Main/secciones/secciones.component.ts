@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-secciones',
@@ -6,11 +6,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: []
 })
 export class SeccionesComponent implements OnInit {
-  @Input() persona: any = {};
-
-  constructor() { }
+  @Input() persona!: any;
+  @Input() login!:boolean;
+  @Output() personaCambio = new EventEmitter<any>();
+  constructor() {
+   }
 
   ngOnInit(): void {
+    this.personaCambio.emit(this.persona);
   }
 
 }

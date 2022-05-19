@@ -5,8 +5,8 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './cursos-realizados-tarjeta.component.html'
 })
 export class CursosRealizadosTarjetaComponent implements OnInit {
-  @Input() curso:any = {};
-  @Input() index:number = 0;
+  @Input() cursos:any = {};
+  @Input() login!:boolean;
   
   constructor() { }
 

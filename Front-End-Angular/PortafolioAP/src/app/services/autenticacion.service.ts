@@ -22,7 +22,7 @@ export class AutenticacionService {
     return this.http.post( this.url, credenciales )
                     .pipe( map( data => {
                       sessionStorage.setItem('currentUser', JSON.stringify(data));
-                      
+                      console.log(data);
                       return data;
                     }));
   }

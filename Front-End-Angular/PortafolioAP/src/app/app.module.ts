@@ -25,7 +25,8 @@ import { ProyectoTarjetaComponent } from './components/Main/secciones/proyecto-t
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 
 import { NoimagePipe } from './pipes/noimage.pipe';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 @NgModule({
   declarations: [
@@ -49,11 +50,13 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
     SoftSkillsTarjetaComponent,
     ProyectoTarjetaComponent,
     IniciarSesionComponent,
-    NoimagePipe
+    NoimagePipe,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

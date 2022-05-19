@@ -1,10 +1,33 @@
   <!-- ACERCA DE -->
   <section class="acercaDe" id="acerca-de">
-    <h1>Acerca de mí</h1>
-    <div class="contenido" *ngIf="persona.descripcion != null">
+    <div class="acercaDe-titulo">
+      <h1>
+        Acerca de mí
+      </h1>
+      <i (click)="onEditar($event)" class="fa-solid fa-pen" *ngIf="login"></i>
+      <!--  -->
+    </div>
+    <div class="contenido" *ngIf="!editar">
       <img src="" alt="" />
       <p>
-        {{ persona.descripcion }}
+        {{ persona.descripction }}
       </p>
     </div>
+
+    <div *ngIf="editar">
+      <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+          <label class="form-label"><strong>Describete brevemente:</strong></label>
+          <textarea 
+            class="form-control"
+            rows="3" 
+            style="resize:none"
+            formControlName="descripction"
+            value="{{persona.descripction}}"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primario mb-4">Guardar</button>
+      </form>
+    </div>
+
   </section>

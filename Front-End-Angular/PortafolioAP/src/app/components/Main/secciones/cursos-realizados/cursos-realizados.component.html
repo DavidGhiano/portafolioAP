@@ -1,9 +1,78 @@
   <!-- CURSOS REALIZADOS -->
   <section class="curso" id="cursos-realizados">
-    <h1>Cursos Realizados</h1>
+    <div class="titulos-editar">
+      <h1>Cursos Realizados</h1>
+      <i 
+        class="fa-solid fa-plus"
+        (click)="onAgregar()"
+        ></i>
+    </div>
+
+    <!-- CURSOS MOSTARDOS -->
     <app-cursos-realizados-tarjeta
-      *ngFor="let curso of persona.cursos"
-      [curso] = "curso"
-      [index] = "curso.idCurso"
+      [cursos] = "persona.cursos"
+      [login]="login"
     ></app-cursos-realizados-tarjeta>
+
+    <!-- FORM AGREGAR -->
+    <div *ngIf="agregar">
+      <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+          <!-- NOMBRE -->
+          <label class="form-label">Nombre del curso:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Por ej: React JS, Angular, Diseño web, etc"
+            formControlName="nombre"
+          />
+        </div>
+        <div class="mb-3">
+          <!-- Dictador por -->
+          <label class="form-label">Dictado por:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Por ej: empresa xxx, institución xxx"
+            formControlName="dictadoPor"
+          />
+        </div>
+        <div class="mb-3">
+          <!-- LOGO -->
+          <label class="form-label">Certificado (si hay)</label>
+          <input
+            class="form-control"
+            type="file"
+            accept="image/png, image/jpeg, application/pdf"
+            formControlName="urlCertificado"
+          />
+        </div>
+        <div class="mb-3">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <!-- COMIENZO -->
+              <label class="form-label">Comienzo:</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Por ej: Noviembre 1990"
+                formControlName="comienzo"
+              />
+            </div>
+            <div class="col-12 col-lg-6">
+              <!-- FINALIZADO -->
+              <label class="form-label">Finalizada:</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Por ej: Abril 2000"
+                formControlName="finalizado"
+              />
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primario mb-3">Agregar</button>
+      </form>
+    </div>
+
   </section>

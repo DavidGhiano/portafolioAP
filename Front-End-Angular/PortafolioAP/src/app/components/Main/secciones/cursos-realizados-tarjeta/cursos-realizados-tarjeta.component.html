@@ -1,12 +1,30 @@
-<div class="contenido">
+<div 
+  class="contenido" 
+  *ngFor="let curso of cursos" 
+  index="curso.idCurso"
+>
   <img src="" alt="" />
   <div class="contenido-info">
-    <h2>{{ curso.nombre }}</h2>
+    <div class="titulos-editar">  
+      <h2>{{ curso.nombre }}</h2>
+      <div>
+        <!-- (click)="onEditar($event, {{experiencia.idExperiencia  }})" -->
+        <i  class="fa-solid fa-pen" *ngIf="login"></i>
+        <i class="fa-solid fa-trash" *ngIf="login"></i>
+      </div>
+    </div>
     <p class="info">{{ curso.dictadoPor }}</p>
-    <p class="info mb-3">{{ curso.comienzo }} | 
-        <span *ngIf="curso.finalizado== null">En Curso</span>
-        <span *ngIf="curso.finalizado != null">{{ curso.finalizado }}</span>
+    <p class="info mb-3">
+      {{ curso.comienzo }} |
+      <span *ngIf="curso.finalizado == ''">En Curso</span>
+      <span *ngIf="curso.finalizado != ''">{{ curso.finalizado }}</span>
     </p>
-    <a [href]="curso.urlCertificado" class="btn btn-primario">Certificado</a>
+    <a 
+      [href]="curso.urlCertificado" 
+      class="btn btn-primario"
+      *ngIf="curso.urlCertificado !='' && curso.urlCertificado != null"
+    >
+      Certificado
+    </a>
   </div>
 </div>

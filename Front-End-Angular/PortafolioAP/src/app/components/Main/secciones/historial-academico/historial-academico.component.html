@@ -1,9 +1,13 @@
   <!-- HISTORIAL ACADÉMICO -->
   <section class="academico" id="historial-academico">
-    <h1>Historial Académico</h1>
+    <div class="titulos-editar">
+      <h1>Historial Académico</h1>
+      <i class="fa-solid fa-plus"></i>
+    </div>
     <app-historial-academico-tarjeta
       *ngFor="let academico of persona.academicos"
       [academico] = "academico"
       [index] = "academico.idAcademico"
+      class="linea-partes"
     ></app-historial-academico-tarjeta>
   </section>

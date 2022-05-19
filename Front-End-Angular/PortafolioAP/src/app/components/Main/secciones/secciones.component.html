@@ -5,30 +5,20 @@
   data-bs-offset="0"
   tabindex="0"
 >
-  <app-perfil
-    [persona] = "persona"
-  ></app-perfil>
-  <app-acercade
-    [persona] = "persona"
-  ></app-acercade>
-  <app-experiencia
-    [persona] = "persona"
-  ></app-experiencia>
+  <app-perfil [persona]="persona" [login]="login"></app-perfil>
+  <app-acercade [persona]="persona" [login]="login"></app-acercade>
+  <app-experiencia [persona]="persona" [login]="login"></app-experiencia>
   <app-historial-academico
-    [persona] = "persona"
+    [persona]="persona"
+    [login]="login"
   ></app-historial-academico>
   <app-cursos-realizados
-    [persona] = "persona"
+    [persona]="persona"
+    [login]="login"
   ></app-cursos-realizados>
-  <app-hard-skills
-    [persona] = "persona"
-  ></app-hard-skills>
-  <app-soft-skills
-    [persona] = "persona"
-  ></app-soft-skills>
-  <app-proyectos
-    [persona] = "persona"
-  ></app-proyectos>
+  <app-hard-skills [persona]="persona" [login]="login"></app-hard-skills>
+  <app-soft-skills [persona]="persona" [login]="login"></app-soft-skills>
+  <app-proyectos [persona]="persona" [login]="login"></app-proyectos>
   <!-- FOOTER -->
   <footer>
     <p><strong>&copy;David Omar Ghiano</strong> - 2022</p>

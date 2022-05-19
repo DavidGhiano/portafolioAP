@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HistorialAcademicoComponent implements OnInit {
   @Input() persona: any = {};
+  @Input() login!:boolean;
+  
   constructor() { }
 
   ngOnInit(): void {

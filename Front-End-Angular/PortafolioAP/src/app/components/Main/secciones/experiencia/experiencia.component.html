@@ -1,9 +1,124 @@
 <!-- EXPERIENCIA -->
 <section class="experiencia" id="experiencia">
-  <h1>Experiencia</h1>
+  <div class="titulos-editar">
+    <h1>Experiencia</h1>
+    <i
+      (click)="onAgregar()"
+      *ngIf="!agregar && login"
+      class="fa-solid fa-plus"
+    ></i>
+  </div>
+  <!-- TARJETAS DE EXPERIENCIA -->
   <app-experiencia-tarjeta
-    *ngFor="let experiencia of persona.experiencias"
-    [experiencia] = "experiencia"
-    [index] = "experiencia.idExperiencia"
+    [experiencias]="experiencias"
+    [login]="login"
+    class="linea-partes"
   ></app-experiencia-tarjeta>
+
+  <!-- FORMULARIO -->
+  <div *ngIf="agregar">
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+      <div class="mb-3">
+        <!-- NOMBRE -->
+        <label class="form-label">Nombre de empresa</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Por ej: ARCOR S.A."
+          formControlName="nombre"
+        />
+      </div>
+      <div class="mb-3">
+        <!-- POSICIÓN -->
+        <label class="form-label">Posición / Cargo:</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Por ej: empleado"
+          formControlName="posicion"
+        />
+      </div>
+      <div class="mb-3">
+        <!-- JORNADA -->
+        <label class="form-label">Jornada: </label>
+        <select class="form-select" formControlName="jornada">
+          <option selected value="">-- SELECCIONA UNA OPCIÓN --</option>
+          <option value="Jornada Completa">Jornada Completa</option>
+          <option value="Media Jornada">Media Jornada</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <!-- LOGO -->
+        <label class="form-label">Logo del negocio</label>
+        <input
+          class="form-control"
+          type="file"
+          accept="image/png, image/jpeg"
+          formControlName="urlExperiencia"
+        />
+      </div>
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <!-- COMIENZO -->
+            <label class="form-label">Comienzo:</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ej: Noviembre 1990"
+              formControlName="comienzo"
+            />
+          </div>
+          <div class="col-12 col-lg-6">
+            <!-- FINALIZADO -->
+            <label class="form-label">Finalizada:</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ej: Abril 2000"
+              formControlName="finalizado"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- 
+
+        GRUPO DE ACTIVIDADES
+
+       -->
+      <div class="mb-3">
+        <div class="actividades-vista">
+          <p
+            *ngFor="let actividad of actividadesForm"
+            class="d-inline m-3 bd-example"
+          >
+            <span class="badge bg-primary">
+              {{ actividad | uppercase }}
+              <i 
+                class="fa-solid fa-delete-left pl-5"
+                (click)="onBorrarActividad(actividad)"  
+              ></i>
+            </span>
+          </p>
+        </div>
+        <label class="form-label">Actividades</label>
+        <div class="input-group mb-3">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Actividad" 
+            formControlName="actividad"
+          />
+          <span class="input-group-text bg-success">
+            <i 
+              class="fa-solid fa-check text-white" 
+              (click)="agregarActividad()"
+            ></i>
+          </span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primario mb-3">Agregar</button>
+    </form>
+  </div>
 </section>

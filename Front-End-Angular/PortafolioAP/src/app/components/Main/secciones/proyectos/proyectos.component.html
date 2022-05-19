@@ -1,9 +1,13 @@
   <!-- PROYECTOS -->
   <section class="proyectos" id="proyectos">
-    <h1>Proyectos</h1>
+    <div class="titulos-editar">
+      <h1>Proyectos</h1>
+      <i class="fa-solid fa-plus"></i>
+    </div>
     <app-proyecto-tarjeta
       *ngFor="let proyecto of persona.proyectos"
       [proyecto] = "proyecto"
       [index] = "proyecto.idProyecto"
+      class="linea-partes"
     ></app-proyecto-tarjeta>
   </section>

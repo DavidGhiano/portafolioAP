@@ -6,7 +6,9 @@ import { AutenticacionService } from '../../services/autenticacion.service';
   selector: 'app-iniciar-sesion',
   templateUrl: './iniciar-sesion.component.html'
 })
+
 export class IniciarSesionComponent implements OnInit {
+  
   form:FormGroup;
   constructor(
               private formBuilder:FormBuilder,
