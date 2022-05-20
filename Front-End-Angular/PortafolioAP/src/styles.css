@@ -344,20 +344,20 @@ section {
   display: flex;
   justify-content:space-between
 }
-.fa-pen, .fa-plus, .fa-trash{
+.fa-pen, .fa-plus, .fa-trash, .fa-minus, .fa-ban{
   color: var(--colorPrincipal);
   margin: 0 1rem;
   align-self: center;
   transition: color .3s ease-in-out;
 }
-.fa-delete-left, .fa-pen, .fa-plus, .fa-trash, .fa-check{
+.fa-delete-left, .fa-pen, .fa-plus, .fa-trash, .fa-check, .fa-minus, .fa-ban{
   cursor:pointer;
 }
 
-.fa-pen{
+.fa-pen, .fa-ban{
   font-size: 2.2rem;
 }
-.fa-plus{
+.fa-plus, .fa-minus{
   font-size: 2.8rem;
 }
 

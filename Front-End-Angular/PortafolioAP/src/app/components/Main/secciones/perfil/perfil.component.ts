@@ -47,9 +47,8 @@ export class PerfilComponent implements OnInit {
     return this.form.get('apellido');
   }
 
-  onEditar(event:Event)
+  onEditar()
   {
-    event.preventDefault();
     this.editar = !this.editar;
     this.llenarCampo();
   }

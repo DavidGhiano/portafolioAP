@@ -1,7 +1,18 @@
-<div class="contenido">
+<div 
+  class="contenido"
+  *ngFor="let academico of academicos"
+  index = "academico.idAcademico"
+>
   <img [src]="academico.urlLogo" [alt]="academico.nombre" />
   <div class="contenido-info">
-    <h2>{{ academico.nombre }}</h2>
+    <div class="titulos-editar">
+      <h2>{{ academico.nombre }}</h2>
+      <div>
+        <!-- (click)="onEditar($event, {{experiencia.idExperiencia  }})" -->
+        <i  class="fa-solid fa-pen" *ngIf="login"></i>
+        <i class="fa-solid fa-trash" *ngIf="login"></i>
+      </div>
+    </div>
     <p class="info">
       {{ academico.titulo }}
     </p>

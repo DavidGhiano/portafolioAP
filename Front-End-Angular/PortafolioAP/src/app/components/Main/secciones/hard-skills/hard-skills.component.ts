@@ -8,10 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HardSkillsComponent implements OnInit {
   @Input() persona: any = {};
   @Input() login!:boolean;
+
+  agregar:boolean = false;
   
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onAgregar()
+  {
+    this.agregar = !this.agregar
   }
 
 }

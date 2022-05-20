@@ -2,7 +2,9 @@
   <section class="hardS" id="hard-skills">
     <div class="titulos-editar">
       <h1>Hard Skills</h1>
-      <i class="fa-solid fa-plus"></i>
+      <i class="fa-solid fa-plus" (click)="onAgregar()" *ngIf="!agregar && login"></i>
+      <i class="fa-solid fa-minus" (click)="onAgregar()" *ngIf="agregar && login"></i>
+
     </div>
     <div class="circulos">
       <app-hard-skills-tarjeta

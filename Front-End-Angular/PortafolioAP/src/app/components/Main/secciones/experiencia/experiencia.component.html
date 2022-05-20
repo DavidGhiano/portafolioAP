@@ -2,11 +2,8 @@
 <section class="experiencia" id="experiencia">
   <div class="titulos-editar">
     <h1>Experiencia</h1>
-    <i
-      (click)="onAgregar()"
-      *ngIf="!agregar && login"
-      class="fa-solid fa-plus"
-    ></i>
+    <i class="fa-solid fa-plus" (click)="onAgregar()" *ngIf="!agregar && login"></i>
+    <i class="fa-solid fa-minus" (click)="onAgregar()" *ngIf="agregar && login"></i>
   </div>
   <!-- TARJETAS DE EXPERIENCIA -->
   <app-experiencia-tarjeta
@@ -94,24 +91,24 @@
           >
             <span class="badge bg-primary">
               {{ actividad | uppercase }}
-              <i 
+              <i
                 class="fa-solid fa-delete-left pl-5"
-                (click)="onBorrarActividad(actividad)"  
+                (click)="onBorrarActividad(actividad)"
               ></i>
             </span>
           </p>
         </div>
         <label class="form-label">Actividades</label>
         <div class="input-group mb-3">
-          <input 
-            type="text" 
-            class="form-control" 
-            placeholder="Actividad" 
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Actividad"
             formControlName="actividad"
           />
           <span class="input-group-text bg-success">
-            <i 
-              class="fa-solid fa-check text-white" 
+            <i
+              class="fa-solid fa-check text-white"
               (click)="agregarActividad()"
             ></i>
           </span>

@@ -12,7 +12,8 @@
       <h1 class="text-center">
         {{ persona.nombreCompleto }}
       </h1>
-      <i (click)="onEditar($event)" class="fa-solid fa-pen" *ngIf="login"></i>
+      <i class="fa-solid fa-pen" (click)="onEditar()"  *ngIf="!editar && login"></i>
+      <i class="fa-solid fa-ban" (click)="onEditar()"  *ngIf="editar && login"></i>
     </div>
     <p class="info">{{ persona.titulo }}</p>
     <p class="">{{ persona.lugar }}</p>

@@ -5,8 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './proyecto-tarjeta.component.html'
 })
 export class ProyectoTarjetaComponent implements OnInit {
-  @Input() proyecto:any = {};
-  @Input() index:number = 0;
+  @Input() proyectos:any = {};
+  
+  index:number = 0;
+  
   constructor() { }
 
   ngOnInit(): void {

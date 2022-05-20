@@ -1,13 +1,92 @@
   <!-- PROYECTOS -->
-  <section class="proyectos" id="proyectos">
+  <section 
+    class="proyectos" 
+    id="proyectos"
+    style="border-bottom: none;"
+  >
     <div class="titulos-editar">
       <h1>Proyectos</h1>
-      <i class="fa-solid fa-plus"></i>
+      <i class="fa-solid fa-plus" (click)="onAgregar()" *ngIf="!agregar && login"></i>
+      <i class="fa-solid fa-minus" (click)="onAgregar()" *ngIf="agregar && login"></i>
     </div>
+
     <app-proyecto-tarjeta
-      *ngFor="let proyecto of persona.proyectos"
-      [proyecto] = "proyecto"
-      [index] = "proyecto.idProyecto"
+      [proyectos] = "persona.proyectos"
       class="linea-partes"
     ></app-proyecto-tarjeta>
+
+    <div *ngIf="agregar">
+      <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+          <!-- NOMBRE -->
+          <label class="form-label">Nombre del proyecto</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Por ej: ARCOR S.A."
+            formControlName="nombre"
+          />
+        </div>
+        <div class="mb-3">
+          <!-- URL -->
+          <label class="form-label">URL</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Por ej: www.example.com"
+            formControlName="url"
+          />
+        </div>
+        <div class="mb-3">
+          <!-- DESCRIPCIÓN -->
+          <label class="form-label">Descripción</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Breve descripción del proyecto"
+            formControlName="descripcion"
+          />
+        </div>
+
+        <div class="mb-3">
+          <div class="actividades-vista">
+            <p
+              *ngFor="let tecnologia of tecnologiaForm"
+              class="d-inline m-3 bd-example"
+            >
+              <span class="badge bg-primary">
+                {{ tecnologia | uppercase }}
+                <i
+                  class="fa-solid fa-delete-left pl-5"
+                  (click)="onBorrarTecnologia(tecnologia)"
+                ></i>
+              </span>
+            </p>
+          </div>
+          <label class="form-label">
+            Tecnologias usadas:
+          </label>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="por ej: Java, php, etc."
+              formControlName="tecnologia"
+            />
+            <span class="input-group-text bg-success">
+              <i
+                class="fa-solid fa-check text-white"
+                (click)="agregarTecnologia()"
+              ></i>
+            </span>
+          </div>
+        </div>
+        <button 
+          type="submit" 
+          class="btn btn-primario mb-3"
+        >
+          Agregar
+        </button>
+      </form>
+    </div>
   </section>

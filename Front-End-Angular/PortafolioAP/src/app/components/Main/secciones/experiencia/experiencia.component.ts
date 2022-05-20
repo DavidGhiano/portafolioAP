@@ -6,7 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './experiencia.component.html',
   styles: []
 })
-export class ExperienciaComponent implements OnInit {
+export class     ExperienciaComponent implements OnInit 
+{
   @Input() persona: any = {};
   @Input() login!:boolean;
   
@@ -88,8 +89,10 @@ export class ExperienciaComponent implements OnInit {
   }
 
   agregarActividad(){
-    this.actividadesForm.push(this.form.get('actividad')?.value);
-    this.form.get('actividad')?.reset();
+    if( this.form.get('actividad')?.value != ''){
+      this.actividadesForm.push(this.form.get('actividad')?.value);
+      this.form.get('actividad')?.reset();
+    }
   }
 
   onBorrarActividad(nombre:string){

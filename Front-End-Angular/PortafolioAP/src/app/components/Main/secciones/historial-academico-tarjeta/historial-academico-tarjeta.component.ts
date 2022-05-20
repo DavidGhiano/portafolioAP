@@ -5,8 +5,11 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './historial-academico-tarjeta.component.html'
 })
 export class HistorialAcademicoTarjetaComponent implements OnInit {
-  @Input() academico:any = {};
-  @Input() index: number = 0;
+  @Input() academicos:any = {};
+  @Input() login!:boolean;
+  
+  index: number = 0;
+  
   constructor() { }
 
   ngOnInit(): void {

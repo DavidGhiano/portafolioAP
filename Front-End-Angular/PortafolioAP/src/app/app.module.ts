@@ -27,6 +27,7 @@ import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesi
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { DomseguroPipe } from './pipes/domseguro.pipe';
     ProyectoTarjetaComponent,
     IniciarSesionComponent,
     NoimagePipe,
-    DomseguroPipe
+    DomseguroPipe,
+    CapitalizadoPipe
   ],
   imports: [
     BrowserModule,

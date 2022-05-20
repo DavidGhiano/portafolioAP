@@ -1,13 +1,108 @@
-  <!-- HISTORIAL ACADÉMICO -->
-  <section class="academico" id="historial-academico">
-    <div class="titulos-editar">
-      <h1>Historial Académico</h1>
-      <i class="fa-solid fa-plus"></i>
-    </div>
-    <app-historial-academico-tarjeta
-      *ngFor="let academico of persona.academicos"
-      [academico] = "academico"
-      [index] = "academico.idAcademico"
-      class="linea-partes"
-    ></app-historial-academico-tarjeta>
-  </section>
+<!-- HISTORIAL ACADÉMICO -->
+<section class="academico" id="historial-academico">
+  <div class="titulos-editar">
+    <h1>Historial Académico</h1>
+    <i 
+      class="fa-solid fa-plus" 
+      (click)="onAgregar()"
+      *ngIf="!agregar && login"
+    ></i>
+    <i 
+      class="fa-solid fa-minus"
+      (click)="onAgregar()"
+      *ngIf="agregar && login"
+    ></i>
+  </div>
+
+  <app-historial-academico-tarjeta
+    [academicos]="persona.academicos"
+    [login]="login"
+    class="linea-partes"
+  ></app-historial-academico-tarjeta>
+
+  <!-- FORMULARIO -->
+  <div *ngIf="agregar">
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+      <div class="mb-3">
+        <!-- NOMBRE -->
+        <label class="form-label">Nombre de la Institución:</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Por ej: Universidad Tecnológica Nacional"
+          formControlName="nombre"
+        />
+      </div>
+      <div class="mb-3">
+        <!-- CARRERA -->
+        <label class="form-label">Carrera:</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Por ej: Técnico Electricista"
+          formControlName="titulo"
+        />
+      </div>
+      <div class="mb-3">
+        <!-- PAGINA -->
+        <label class="form-label"> URL de la carrera: </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Por ej: Universidad Tecnológica Nacional"
+          formControlName="urlCarrera"
+        />
+      </div>
+      <div class="mb-3">
+        <!-- ESTADO -->
+        <label class="form-label"> Estado: </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Por ej: en curso"
+          formControlName="estado"
+        />
+      </div>
+      <div class="mb-3">
+        <!-- LOGO -->
+        <label class="form-label"> Logo de la institución: </label>
+        <input
+          class="form-control"
+          type="file"
+          accept="image/png, image/jpeg"
+          formControlName="urlLogo"
+        />
+      </div>
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <!-- COMIENZO -->
+            <label class="form-label">Comienzo:</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ej: Noviembre 1990"
+              formControlName="comienzo"
+            />
+          </div>
+          <div class="col-12 col-lg-6">
+            <!-- FINALIZADO -->
+            <label class="form-label">Finalizada:</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ej: Abril 2000"
+              formControlName="finalizado"
+            />
+          </div>
+        </div>
+      </div>
+      <button 
+        type="submit" 
+        class="btn btn-primario mb-3"
+      >
+        Agregar
+      </button>
+    </form>
+  </div>
+</section>

@@ -4,7 +4,8 @@
       <h1>
         Acerca de mí
       </h1>
-      <i (click)="onEditar($event)" class="fa-solid fa-pen" *ngIf="login"></i>
+      <i class="fa-solid fa-pen" (click)="onEditar($event)"  *ngIf="!editar && login"></i>
+      <i class="fa-solid fa-ban" (click)="onEditar($event)"  *ngIf="editar && login"></i>
       <!--  -->
     </div>
     <div class="contenido" *ngIf="!editar">

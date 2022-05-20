@@ -2,10 +2,8 @@
   <section class="curso" id="cursos-realizados">
     <div class="titulos-editar">
       <h1>Cursos Realizados</h1>
-      <i 
-        class="fa-solid fa-plus"
-        (click)="onAgregar()"
-        ></i>
+      <i class="fa-solid fa-plus" (click)="onAgregar()" *ngIf="!agregar && login"></i>
+      <i class="fa-solid fa-minus" (click)="onAgregar()" *ngIf="agregar && login"></i>
     </div>
 
     <!-- CURSOS MOSTARDOS -->
